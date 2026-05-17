@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-text-primary font-sans;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-alt;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-strong rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-muted;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-medium rounded-xl px-5 py-2.5
+    hover:bg-primary-dark active:bg-primary-dark
+    transition-all duration-150 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-primary/30
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border border-primary font-medium rounded-xl px-5 py-2.5
+    hover:bg-primary-soft active:bg-primary-soft
+    transition-all duration-150 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-primary/30
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-success {
+    @apply bg-secondary text-white font-medium rounded-xl px-5 py-2.5
+    hover:bg-secondary-light active:bg-secondary-light
+    transition-all duration-150 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-secondary/30
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 text-white font-medium rounded-xl px-5 py-2.5
+    hover:bg-red-600 active:bg-red-700
+    transition-all duration-150 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-red-500/30
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary font-medium rounded-xl px-5 py-2.5
+    hover:bg-surface-alt active:bg-border
+    transition-all duration-150 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-primary/20
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full border border-border rounded-xl px-3 py-3 text-sm text-text-primary
+    bg-white placeholder:text-text-muted
+    focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+    transition-all duration-150 ease-in-out;
+  }
+
+  .card {
+    @apply bg-white border border-border rounded-2xl shadow-sm;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium
+    bg-secondary-soft text-green-700;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium
+    bg-amber-50 text-amber-600;
+  }
+
+  .badge-error {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium
+    bg-red-50 text-red-500;
+  }
+
+  .badge-info {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium
+    bg-primary-soft text-primary-dark;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium
+    bg-surface-alt text-text-secondary;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold text-text-primary;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-text-primary;
+  }
+
+  .table-th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-text-secondary uppercase tracking-wider;
+  }
+
+  .table-td {
+    @apply px-4 py-3.5 text-sm text-text-primary;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+    text-text-secondary hover:bg-primary-soft hover:text-primary
+    transition-all duration-150 ease-in-out cursor-pointer;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary-soft text-primary;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
